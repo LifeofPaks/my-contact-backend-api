@@ -1,4 +1,5 @@
 const express = require("express");
+const validateToken = require("../middleware/validateTokenHandler")
 const {
   registerUser,
   loginUser,
@@ -10,6 +11,6 @@ router.post("/register", registerUser);
 
 router.post("/login", loginUser);
 
-router.get("/current", currentUserInfo);
+router.get("/current",validateToken, currentUserInfo,);
 
 module.exports = router;
